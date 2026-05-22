@@ -1,0 +1,8 @@
+CREATE OR REFRESH STREAMING TABLE supply_chain_demo_cat.bronze.raw_access_logs
+COMMENT "Raw access logs" AS
+SELECT *
+FROM STREAM read_files("/Volumes/supply_chain_demo_cat/default/raw/logs",
+format => "csv", 
+header => true,
+inferSchema => true
+) 
